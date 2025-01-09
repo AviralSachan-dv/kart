@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-kart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .product-image img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .product-details {
+      text-align: center;
+    }
+
+    .product-details h3 {
+      font-size: 20px;
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .product-details p {
+      font-size: 16px;
+      color: #555;
+      margin: 5px 0;
+    }
+
+    .add-to-cart {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .add-to-cart:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-card">
+    <div class="product-image">
+      <img src="https://images.meesho.com/images/products/77203490/tdsho_128.webp" alt="Product Image">
+    </div>
+    <div class="product-details">
+      <h3>Boom boom pencil</h3>
+      <p id="quantity">Quantity: 1</p>
+      <p id="price">Price: $79</p>
+    </div>
+    <button class="add-to-cart" onclick="addToCart('Boom boom pencil', 1, 79)">Add to Cart</button>
+  </div>
+
+  <script>
+    function addToCart(productName, quantity, price) {
+       
+      
+      let cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+      
+      if (cart[productName]) {
+        cart[productName].quantity += quantity;
+        cart[productName].totalPrice += price;
+      } else {
+        cart[productName] = {
+          quantity: quantity,
+          totalPrice: price
+        };
+      }
+
+    
+      
+       localStorage.setItem('cart',JSON.stringify(cart));
+
+      
+
+     alert( 'item added');
+    
+    }
+  </script>
+</body>
+</html>
