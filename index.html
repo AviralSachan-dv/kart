@@ -12,7 +12,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .product-card {
@@ -74,23 +75,45 @@
 <body>
   <div class="product-card">
     <div class="product-image">
-      <img src="https://images.meesho.com/images/products/77203490/tdsho_128.webp" alt="Product Image">
+      <img src="https://images.meesho.com/images/products/77203490/tdsho_128.webp" alt="Image">
     </div>
     <div class="product-details">
-      <h3>Boom boom pencil</h3>
+      <h3>Boom pencil</h3>
       <p id="quantity">Quantity: 1</p>
       <p id="price">Price: $79</p>
     </div>
-    <button class="add-to-cart" onclick="addToCart('Boom boom pencil', 1, 79)">Add to Cart</button>
+    <button class="add-to-cart" onclick="addToCart('Boom boom pencil', 1, 79, 'cart')">Add to Cart</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-image">
+      <img src="https://png.pngtree.com/png-vector/20201223/ourmid/pngtree-yellow-box-frame-cover-notebook-clipart-png-image_2635621.jpg" alt="Image1">
+    </div>
+    <div class="product-details">
+      <h3> Notebook</h3>
+      <p id="quantity">Quantity: 1</p>
+      <p id="price">Price: $25</p>
+    </div>
+    <button class="add-to-cart" onclick="addToCart('Stylish Notebook', 1, 25, 'cart1')">Add to Cart</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-image">
+      <img src="data:image/jpeg;base64,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" alt="Product Image2">
+    </div>
+    <div class="product-details">
+      <h3> Mouse</h3>
+      <p id="quantity">Quantity: 1</p>
+      <p id="price">Price: $15</p>
+    </div>
+    <button class="add-to-cart" onclick="addToCart('Wireless Mouse', 1, 15, 'cart2')">Add to Cart</button>
   </div>
 
   <script>
-    function addToCart(productName, quantity, price) {
-       
-      
-      let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    function addToCart(productName, quantity, price, Key) {
 
-      
+      let cart = JSON.parse(localStorage.getItem(Key)) || {};
+
       if (cart[productName]) {
         cart[productName].quantity += quantity;
         cart[productName].totalPrice += price;
@@ -100,9 +123,9 @@
           totalPrice: price
         };
       }
-       localStorage.setItem('cart',JSON.stringify(cart));
-     alert( 'item added');
-    
+
+      localStorage.setItem(Key, JSON.stringify(cart));
+      alert(`Item added to ${Key}`);
     }
   </script>
 </body>
